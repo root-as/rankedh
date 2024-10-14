@@ -49,3 +49,7 @@ a {
     color: black;
     text-decoration: underline; 
 }
+
+.impressum p {
+    text-align: justify;
+}
