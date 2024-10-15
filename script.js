@@ -19,10 +19,10 @@ function compareDeckList(deckList, itemsData) {
             if (matchedItem && matchedItem.rank > highestRank) {
                 highestRank = matchedItem.rank;
                 // show card names
-                highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
+                // highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
 
                 // show rank only
-                // highestRankItem = `${highestRank}`;
+                highestRankItem = `${highestRank}`;
 
             }
         }
