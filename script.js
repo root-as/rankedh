@@ -18,7 +18,12 @@ function compareDeckList(deckList, itemsData) {
             const matchedItem = itemsData.find(item => item.item.toLowerCase() === itemName.trim().toLowerCase());
             if (matchedItem && matchedItem.rank > highestRank) {
                 highestRank = matchedItem.rank;
+                // show card names
                 highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
+
+                // show rank only
+                // highestRankItem = `${highestRank}`;
+
             }
         }
     });
