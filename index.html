@@ -12,22 +12,88 @@
 <body>
     <header>
         <h1>Welcome to rankEDH</h1>
+        <p>currently work in progress - come back soon</p>
     </header>
 
-    <section id="home">
-        <h2>Rank 4</h2>
-        <p>This is a simple website created with HTML and CSS. Feel free to explore the content below!</p>
-    </section>
 
-    <section id="about">
-        <h2>Rank 3</h2>
-        <p>This is the About section. Here you can talk about yourself, your project, or anything you want to share.</p>
-    </section>
+    <div class="container">
+        <section id="decklist">
+            <h2>Enter your decklist</h2>
+            <textarea id="textField"
+                placeholder="1 Mana Crypt&#013;1 Jeweled Lotus&#013;1 Dockside Extortionist"></textarea>
+            <br>
+            <button id="submitButton">Submit</button>
+        </section>
+        <section id="results">
+            <h2>Results</h2>
+            <p>Your deck is rank: </p>
+            <div id="resultOutput"></div>
+        </section>
+    </div>
 
+    <div class="full-width-section">
+        <section id="rank4">
+            <h2>Rank 4 Cards</h2>
+            <p>Placeholder for rank 4 cards.
+            </p>
+        </section>
+    </div>
+    <div class="full-width-section">
+        <section id="rank3">
+            <h2>Rank 3 Cards</h2>
+            <p>Placeholder for rank 3 cards.
+            </p>
+        </section>
+    </div>
+    <div class="full-width-section">
+        <section id="rank2">
+            <h2>Rank 2 Cards</h2>
+            <p>Placeholder for rank 2 cards.
+            </p>
+        </section>
+    </div>
     <footer>
         <p>&copy; 2024 | <a href="https://rankedh.com/">rankEDH</a> | <a
                 href="https://rankedh.com/impressum">Impressum</a></p>
     </footer>
+
+    <script>
+        // Your JavaScript code (fetching JSON, comparing lists, etc.)
+        async function fetchJsonData() {
+            const response = await fetch('cards.json'); // Fetch the JSON file
+            return await response.json();
+        }
+
+        function compareDeckList(deckList, itemsData) {
+            const deckLines = deckList.split('\n');
+            let highestRank = 0;
+            let highestRankItem = '';
+
+            deckLines.forEach(line => {
+                const quantityAndItem = line.match(/^(\d+)\s(.+)$/);
+                if (quantityAndItem) {
+                    const [, quantity, itemName] = quantityAndItem;
+
+                    const matchedItem = itemsData.find(item => item.item.toLowerCase() === itemName.trim().toLowerCase());
+                    if (matchedItem && matchedItem.rank > highestRank) {
+                        highestRank = matchedItem.rank;
+                        highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
+                    }
+                }
+            });
+
+            return highestRankItem || 'No matches found';
+        }
+
+        document.getElementById('submitButton').addEventListener('click', async () => {
+            const deckList = document.getElementById('textField').value;
+            const itemsData = await fetchJsonData();
+
+            const result = compareDeckList(deckList, itemsData);
+            document.getElementById('resultOutput').textContent = result;
+        });
+    </script>
+
 </body>
 
 </html>
