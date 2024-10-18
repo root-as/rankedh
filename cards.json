@@ -1,8 +1,18 @@
 [
   {
     "rank": 1,
+    "item": "Rank Officer",
+    "image": "7/a/7a05edf6-ade4-4052-924d-6057faa51693.jpg"
+  },
+  {
+    "rank": 1,
     "item": "Sol Ring",
     "image": "8/2/82f1a8a3-7fdb-49a3-9649-b5c0b4755cd5.jpg"
+  },
+  {
+    "rank": 2,
+    "item": "Rally the Ranks",
+    "image": "0/3/03595195-3be2-4d18-b5c0-43b2dcc1c0f5.jpg"
   },
   {
     "rank": 3,
@@ -20,6 +30,16 @@
     "image": "e/2/e27e2eb4-d48b-43c3-bd19-e1748f310c54.jpg"
   },
   {
+    "rank": 3,
+    "item": "Rank and File",
+    "image": "5/9/59481cb5-2cb0-4b8c-84ee-519399862d46.jpg"
+  },
+  {
+    "rank": 3,
+    "item": "Return to the Ranks",
+    "image": "9/f/9fccce64-abac-4b90-bbe5-dbba8434b3b4.jpg"
+  },
+  {
     "rank": 4,
     "item": "Confusion in the Ranks",
     "image": "9/d/9d46aca2-4714-4d2c-9466-5f1c043b8726.jpg"
@@ -33,6 +53,11 @@
     "rank": 4,
     "item": "Endless Ranks of the Dead",
     "image": "1/5/155ae16c-f32b-421d-a92a-bf13d9f32891.jpg"
+  },
+  {
+    "rank": 4,
+    "item": "Slash the Ranks",
+    "image": "0/9/0913a5e8-7f77-44f2-a7cf-c8c0d6270a86.jpg"
   },
   {
     "rank": 5,
