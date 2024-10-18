@@ -22,9 +22,9 @@ function compareDeckList(deckList, itemsData) {
                 // highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
 
                 // show rank only
-                highestRankItem = 'Your deck is rank: ' + `${highestRank}`;
+                highestRankItem = ' rank: ' + `${highestRank}`;
                 if (highestRank === 5) {
-                    highestRankItem = 'Your deck is BANNED'
+                    highestRankItem = ' BANNED'
                 }
 
             }
