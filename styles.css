@@ -104,7 +104,35 @@ a {
     background-color: #4a9b4d; /* Darker shade on hover */
 }
 
-.card-container {
+.card-container-0 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-1 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-2 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-3 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-4 {
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap onto the next line */
     justify-content: space-between; /* Space out the cards evenly */
