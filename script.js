@@ -38,3 +38,23 @@ document.getElementById('submitButton').addEventListener('click', async () => {
     const result = compareDeckList(deckList, itemsData);
     document.getElementById('resultOutput').textContent = result;
 });
+
+// Function to display Rank 4 Cards
+async function displayRank4Cards() {
+    const itemsData = await fetch('cards.json'); // Fetch the JSON file
+    const rank4Cards = itemsData.filter(item => item.rank === 4); // Filter for rank 4 cards
+
+    const cardContainer = document.querySelector('.card-container');
+    rank4Cards.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer.appendChild(cardDiv);
+    });
+}
+
+// Call the function to display cards on page load
+document.addEventListener('DOMContentLoaded', displayRank4Cards);
