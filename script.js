@@ -7,7 +7,7 @@ async function fetchJsonData() {
 
 function compareDeckList(deckList, itemsData) {
     const deckLines = deckList.split('\n');
-    let highestRank = -1;
+    let highestRank = 0;
     let highestRankItem = '';
 
     deckLines.forEach(line => {
@@ -23,7 +23,7 @@ function compareDeckList(deckList, itemsData) {
 
                 // show rank only
                 highestRankItem = 'Your deck is rank: ' + `${highestRank}`;
-                if (highestRankItem === 0) {
+                if (highestRank === 0) {
                     highestRankItem = 'Your deck is BANNED'
                 }
 
@@ -49,13 +49,13 @@ async function displayRankCards() {
     const rankCards3 = itemsData.filter(item => item.rank === 3);
     const rankCards2 = itemsData.filter(item => item.rank === 2);
     const rankCards1 = itemsData.filter(item => item.rank === 1);
-    const rankCards0 = itemsData.filter(item => item.rank === 0);
+    const rankCards5 = itemsData.filter(item => item.rank === 5); //BANNED
 
     const cardContainer4 = document.querySelector('.card-container-4');
     const cardContainer3 = document.querySelector('.card-container-3');
     const cardContainer2 = document.querySelector('.card-container-2');
     const cardContainer1 = document.querySelector('.card-container-1');
-    const cardContainer0 = document.querySelector('.card-container-0');
+    const cardContainer5 = document.querySelector('.card-container-5');
 
     rankCards4.forEach(card => {
         const cardDiv = document.createElement('div');
@@ -97,14 +97,15 @@ async function displayRankCards() {
         cardContainer1.appendChild(cardDiv);
     });
 
-    rankCards0.forEach(card => {
+    // BANNED
+    rankCards5.forEach(card => {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
             <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
-        cardContainer0.appendChild(cardDiv);
+        cardContainer5.appendChild(cardDiv);
     });
 }
 
