@@ -7,7 +7,7 @@ async function fetchJsonData() {
 
 function compareDeckList(deckList, itemsData) {
     const deckLines = deckList.split('\n');
-    let highestRank = 0;
+    let highestRank = -1;
     let highestRankItem = '';
 
     deckLines.forEach(line => {
@@ -22,7 +22,10 @@ function compareDeckList(deckList, itemsData) {
                 // highestRankItem = `${itemName.trim()} (Rank: ${highestRank})`;
 
                 // show rank only
-                highestRankItem = `${highestRank}`;
+                highestRankItem = 'Your deck is rank: ' + `${highestRank}`;
+                if (highestRankItem === 0) {
+                    highestRankItem = 'Your deck is BANNED'
+                }
 
             }
         }
