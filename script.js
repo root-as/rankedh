@@ -49,7 +49,7 @@ async function displayRank4Cards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="${card.image}" alt="${card.item}">
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer.appendChild(cardDiv);
