@@ -39,30 +39,71 @@ document.getElementById('submitButton').addEventListener('click', async () => {
     document.getElementById('resultOutput').textContent = result;
 });
 
-// Function to display cards
+// Function to display Rank 4 Cards
 async function displayRankCards() {
     const itemsData = await fetchJsonData();
+    const rankCards4 = itemsData.filter(item => item.rank === 4);
+    const rankCards3 = itemsData.filter(item => item.rank === 3);
+    const rankCards2 = itemsData.filter(item => item.rank === 2);
+    const rankCards1 = itemsData.filter(item => item.rank === 1);
+    const rankCards0 = itemsData.filter(item => item.rank === 0);
 
-    // Clear previous cards in each rank section
-    for (let rank = 0; rank <= 4; rank++) {
-        const cardContainer = document.querySelector(`#rank${rank} .card-container`);
-        cardContainer.innerHTML = ''; // Clear existing cards
-    }
+    const cardContainer4 = document.querySelector('.card-container-4');
+    const cardContainer3 = document.querySelector('.card-container-3');
+    const cardContainer2 = document.querySelector('.card-container-2');
+    const cardContainer1 = document.querySelector('.card-container-1');
+    const cardContainer0 = document.querySelector('.card-container-0');
 
-    // Sort and display cards by rank
-    itemsData.forEach(card => {
+    rankCards4.forEach(card => {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="${card.image}" alt="${card.item}">
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
+        cardContainer4.appendChild(cardDiv);
+    });
 
-        // Append the card to the appropriate rank section
-        const cardContainer = document.querySelector(`#rank${card.rank} .card-container`);
-        cardContainer.appendChild(cardDiv);
+    rankCards3.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer3.appendChild(cardDiv);
+    });
+
+    rankCards2.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer2.appendChild(cardDiv);
+    });
+
+    rankCards1.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer1.appendChild(cardDiv);
+    });
+
+    rankCards0.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer0.appendChild(cardDiv);
     });
 }
 
 // Call the function to display cards on page load
-document.addEventListener('DOMContentLoaded', displayRank4Cards);
+document.addEventListener('DOMContentLoaded', displayRankCards);
