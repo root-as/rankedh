@@ -39,19 +39,27 @@ document.getElementById('submitButton').addEventListener('click', async () => {
     document.getElementById('resultOutput').textContent = result;
 });
 
-// Function to display Rank 4 Cards
-async function displayRank4Cards() {
-    const itemsData = await fetchJsonData(); // Fetch the JSON file
-    const rank4Cards = itemsData.filter(item => item.rank === 4); // Filter for rank 4 cards
+// Function to display cards
+async function displayRankCards() {
+    const itemsData = await fetchJsonData();
 
-    const cardContainer = document.querySelector('.card-container');
-    rank4Cards.forEach(card => {
+    // Clear previous cards in each rank section
+    for (let rank = 0; rank <= 4; rank++) {
+        const cardContainer = document.querySelector(`#rank${rank} .card-container`);
+        cardContainer.innerHTML = ''; // Clear existing cards
+    }
+
+    // Sort and display cards by rank
+    itemsData.forEach(card => {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
+
+        // Append the card to the appropriate rank section
+        const cardContainer = document.querySelector(`#rank${card.rank} .card-container`);
         cardContainer.appendChild(cardDiv);
     });
 }
