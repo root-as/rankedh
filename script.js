@@ -41,7 +41,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
 
 // Function to display Rank 4 Cards
 async function displayRank4Cards() {
-    const itemsData = await fetch('cards.json'); // Fetch the JSON file
+    const itemsData = await fetchJsonData(); // Fetch the JSON file
     const rank4Cards = itemsData.filter(item => item.rank === 4); // Filter for rank 4 cards
 
     const cardContainer = document.querySelector('.card-container');
