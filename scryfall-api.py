@@ -20,7 +20,7 @@ with open(input_csv, mode='r') as infile, open(output_csv, mode='w', newline='')
     writer = csv.writer(outfile)
     
     # Write header to output CSV
-    writer.writerow(['rank,item,image'])
+    writer.writerow(['rank', 'item', 'image'])
     
     for row in reader:
         quantity, card_name = row
@@ -28,3 +28,8 @@ with open(input_csv, mode='r') as infile, open(output_csv, mode='w', newline='')
         writer.writerow([quantity, card_name, image_url])
 
 print(f"Data written to {output_csv}")
+
+with open('csv2json.py', 'r') as file:
+    script = file.read()
+exec(script)
+print(f"Converted to json")
