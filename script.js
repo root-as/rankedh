@@ -23,7 +23,7 @@ function compareDeckList(deckList, itemsData) {
 
                 // show rank only
                 highestRankItem = 'Your deck is rank: ' + `${highestRank}`;
-                if (highestRank === 5) {
+                if (highestRank === 6) {
                     highestRankItem = 'Your deck is BANNED'
                 }
 
@@ -45,17 +45,29 @@ document.getElementById('submitButton').addEventListener('click', async () => {
 // Function to display Rank 4 Cards
 async function displayRankCards() {
     const itemsData = await fetchJsonData();
+    const rankCards5 = itemsData.filter(item => item.rank === 5);
     const rankCards4 = itemsData.filter(item => item.rank === 4);
     const rankCards3 = itemsData.filter(item => item.rank === 3);
     const rankCards2 = itemsData.filter(item => item.rank === 2);
     const rankCards1 = itemsData.filter(item => item.rank === 1);
-    const rankCards5 = itemsData.filter(item => item.rank === 5); //BANNED
+    const rankCards6 = itemsData.filter(item => item.rank === 6); //BANNED
 
+    const cardContainer5 = document.querySelector('.card-container-5');
     const cardContainer4 = document.querySelector('.card-container-4');
     const cardContainer3 = document.querySelector('.card-container-3');
     const cardContainer2 = document.querySelector('.card-container-2');
     const cardContainer1 = document.querySelector('.card-container-1');
-    const cardContainer5 = document.querySelector('.card-container-5');
+    const cardContainer6 = document.querySelector('.card-container-6');
+
+    rankCards5.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.innerHTML = `
+            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <p>${card.item}</p>
+        `;
+        cardContainer4.appendChild(cardDiv);
+    });
 
     rankCards4.forEach(card => {
         const cardDiv = document.createElement('div');
@@ -98,7 +110,7 @@ async function displayRankCards() {
     });
 
     // BANNED
-    rankCards5.forEach(card => {
+    rankCards6.forEach(card => {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
