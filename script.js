@@ -9,57 +9,40 @@ function compareDeckList(deckList, itemsData) {
     const deckLines = deckList.split('\n');
     let highestRank = 0;
     let highestRankItem = '';
-    let totalCards = 0;
-    const rankCounts = {}; // To track the count of cards for each rank
-
-    // Check if the deck has more than 100 cards
-    if (deckLines.length > 100) {
-        return 'Deck list exceeds the maximum limit of 100 cards.';
-    }
+    let rank3count = 0;
 
     deckLines.forEach(line => {
         const quantityAndItem = line.match(/^(\d+)\s(.+)$/);
         if (quantityAndItem) {
-            const [, quantityStr, itemName] = quantityAndItem;
-            const quantity = parseInt(quantityStr, 10);
-            totalCards += quantity;
+            const [, quantity, itemName] = quantityAndItem;
 
             const matchedItem = itemsData.find(item => item.item.toLowerCase() === itemName.trim().toLowerCase());
-            if (matchedItem) {
-                const rank = matchedItem.rank;
-
-                // Update the count for this rank
-                if (!rankCounts[rank]) {
-                    rankCounts[rank] = 0;
+            if (matchedItem && matchedItem.rank > highestRank) {
+                highestRank = matchedItem.rank;
+                // rank 3 matched
+                if (matchedItem.rank === 3) {
+                    rank3count++;
                 }
-                rankCounts[rank] += quantity;
 
-                // Update the highest rank logic
-                if (rank > highestRank) {
-                    highestRank = rank;
-                    highestRankItem = `Your deck is rank: ${highestRank}`;
-                    if (highestRank === 6) {
-                        highestRankItem = 'Your deck is BANNED';
-                    }
+
+                // show rank only
+                highestRankItem = 'Your deck is rank: ' + `${highestRank}`;
+
+                // rank 3 output
+                if (rank3count >= 3) {
+                    highestRankItem = 'Your deck is rank: 3';
                 }
+                if (highestRank === 6) {
+                    highestRankItem = 'Your deck is BANNED'
+                }
+
+
             }
         }
     });
 
-    // Check if there are at least 3 cards of rank 3
-    if (rankCounts[3] >= 3) {
-        highestRank = 3;
-        highestRankItem = 'Your deck is rank: 3 (Triggered by 3 or more rank 3 cards)';
-    }
-
-    // Check if the total number of cards exceeds 100
-    if (totalCards > 100) {
-        return 'Deck list exceeds the maximum limit of 100 cards.';
-    }
-
-    return highestRankItem;
+    return highestRankItem || 'No matches found';
 }
-
 
 document.getElementById('submitButton').addEventListener('click', async () => {
     const deckList = document.getElementById('textField').value;
