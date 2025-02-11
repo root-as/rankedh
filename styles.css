@@ -113,12 +113,6 @@ a {
     background-color: #4a9b4d; /* Darker shade on hover */
 }
 
-.card-container-5 {
-    display: flex;
-    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
-    justify-content: space-between; /* Space out the cards evenly */
-    margin-top: 1rem; /* Space above the cards */
-}
 
 .card-container-1 {
     display: flex;
@@ -142,6 +136,20 @@ a {
 }
 
 .card-container-4 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-5 {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: space-between; /* Space out the cards evenly */
+    margin-top: 1rem; /* Space above the cards */
+}
+
+.card-container-6 {
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap onto the next line */
     justify-content: space-between; /* Space out the cards evenly */
