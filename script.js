@@ -45,12 +45,11 @@ function compareDeckList(deckList, itemsData) {
     });
 
     // Check if there are at least 3 cards of rank 3
-    if (rankCounts[3] >= 3) {
-        if (highestRank > 3) {
-            highestRankItem = `Your deck is rank: ${highestRank}`;
-        } else highestRankItem = 'Your deck is rank: 3 (Triggered by 3 or more rank 3 cards)';
-    } else highestRankItem = 'Your deck is rank: 1 or 2';
-
+    if (highestRank === 3) {
+        if (rankCounts[3] >= 3) {
+            highestRankItem = 'Your deck is rank: 3 (Triggered by 3 or more rank 3 cards)';
+        } else highestRankItem = 'Your deck is rank: 1 or 2';
+    }
 
     return highestRankItem || 'No matches found';
 }
