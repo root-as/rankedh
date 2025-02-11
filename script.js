@@ -66,7 +66,7 @@ async function displayRankCards() {
             <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
-        cardContainer4.appendChild(cardDiv);
+        cardContainer5.appendChild(cardDiv);
     });
 
     rankCards4.forEach(card => {
@@ -117,7 +117,7 @@ async function displayRankCards() {
             <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
-        cardContainer5.appendChild(cardDiv);
+        cardContainer6.appendChild(cardDiv);
     });
 }
 
