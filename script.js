@@ -51,7 +51,7 @@ function compareDeckList(deckList, itemsData) {
         } else highestRankItem = 'Your deck is rank: 1 or 2';
     }
 
-    return highestRankItem || 'No matches found';
+    return highestRankItem || 'Your deck is rank: 1 or 2';
 }
 
 document.getElementById('submitButton').addEventListener('click', async () => {
