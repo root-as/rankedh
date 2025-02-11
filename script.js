@@ -63,7 +63,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer5.appendChild(cardDiv);
@@ -73,7 +73,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer4.appendChild(cardDiv);
@@ -83,7 +83,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer3.appendChild(cardDiv);
@@ -93,7 +93,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer2.appendChild(cardDiv);
@@ -103,7 +103,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer1.appendChild(cardDiv);
@@ -114,7 +114,7 @@ async function displayRankCards() {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card';
         cardDiv.innerHTML = `
-            <img src="https://cards.scryfall.io/normal/front/${card.image}" alt="${card.item}">
+            <img src="${card.image}" alt="${card.item}">
             <p>${card.item}</p>
         `;
         cardContainer6.appendChild(cardDiv);
