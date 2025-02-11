@@ -49,7 +49,7 @@ function compareDeckList(deckList, itemsData) {
         if (highestRank > 3) {
             highestRankItem = `Your deck is rank: ${highestRank}`;
         } else highestRankItem = 'Your deck is rank: 3 (Triggered by 3 or more rank 3 cards)';
-    }
+    } else highestRankItem = 'Your deck is rank: 1 or 2';
 
 
     return highestRankItem || 'No matches found';
