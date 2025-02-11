@@ -22,10 +22,20 @@ with open(input_csv, mode='r') as infile, open(output_csv, mode='w', newline='')
     # Write header to output CSV
     writer.writerow(['rank', 'item', 'image'])
     
+
+        
+
+        # Process each row
     for row in reader:
-        quantity, card_name = row
+        # Treat the entire row as a single string
+        row_str = ','.join(row)
+        
+        # Split into 'num' and 'name' manually
+        rank = row_str.split(',', 1)[0]  # Split on the first comma only
+        card_name = row_str.split(',', 1)[1] if ',' in row_str else row_str
+
         image_url = get_card_image_url(card_name)
-        writer.writerow([quantity, card_name, image_url])
+        writer.writerow([rank, card_name, image_url])
 
 print(f"Data written to {output_csv}")
 
