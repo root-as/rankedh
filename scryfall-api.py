@@ -7,7 +7,14 @@ def get_card_image_url(card_name):
     response = requests.get(url)
     if response.status_code == 200:
         card_data = response.json()
-        return card_data.get('image_uris', {}).get('normal', 'Image not found')
+        
+        # Check if the card is double-faced
+        if 'card_faces' in card_data:
+            # Use the front face by default
+            return card_data['card_faces'][0]['image_uris']['normal']
+        else:
+            # Single-faced card
+            return card_data.get('image_uris', {}).get('normal', 'Image not found')
     else:
         return 'Card not found'
 
